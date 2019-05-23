@@ -9,7 +9,10 @@ export default class AddForm extends Component {
   render() {
     return (
       <form className="form-inline addFormClass">
-        <input placeholder="search" className="form-control mr-sm-2" />
+        <input
+          placeholder="type here to add task"
+          className="form-control mr-sm-2"
+        />
         <button className="btn btn-primary " onClick={this.onAddButtonPress}>
           {" "}
           Add{" "}
