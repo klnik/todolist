@@ -108,7 +108,7 @@ export default class App extends Component {
     const { todoData, search, filter } = this.state;
 
     let visibleItems = this.search(todoData, search);
-    visibleItems = this.filter(todoData, filter);
+    visibleItems = this.filter(visibleItems, filter);
 
     const done = todoData.filter(el => {
       return el.done;
