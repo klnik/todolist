@@ -1,17 +1,30 @@
-import React from "react";
+import React, { Component } from "react";
 import "./search-panel.css";
-import ItemStatusFilter from "../item-status-filter";
 
-const SearchPanel = () => {
-  return (
-    <form className="form-inline">
-      <input
-        placeholder="search"
-        className="form-control mr-sm-2 serachPanel"
-      />
-      <ItemStatusFilter />
-    </form>
-  );
-};
+export default class SearchPanel extends Component {
+  state = {
+    term: ""
+  };
 
-export default SearchPanel;
+  onTermChange = e => {
+    const { onSearchChange = () => {} } = this.props;
+    this.setState({
+      term: e.target.value
+    });
+
+    onSearchChange(e.target.value);
+  };
+
+  render() {
+    return (
+      <form className="form-inline">
+        <input
+          value={this.state.term}
+          placeholder="search"
+          onChange={this.onTermChange}
+          className="form-control mr-sm-2 serachPanel"
+        />
+      </form>
+    );
+  }
+}
