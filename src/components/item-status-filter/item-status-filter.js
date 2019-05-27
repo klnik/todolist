@@ -10,13 +10,14 @@ const filterButtons = [
 const ItemStatusFilter = ({ filter, onFilterChange = () => {} }) => {
   const buttons = filterButtons.map(({ name, label }) => {
     const isActive = name === filter;
-    const classNames =
-      "btn " + (isActive ? "btn-primary" : "btn-outline-primary");
+    const classNames = isActive ? "btn-primary" : "btn-outline-primary";
 
     return (
-      <button className={classNames} onClick={() => onFilterChange(name)}>
-        {" "}
-        {label}{" "}
+      <button
+        className={`btn ${classNames}`}
+        onClick={() => onFilterChange(name)}
+      >
+        {label}
       </button>
     );
   });
